@@ -1,0 +1,24 @@
+{% layout 'includes/layout.html' %}
+{% block content %}
+
+  <div class="container">
+    <h1>{{ title }}</h1>
+    {% if author %}
+      <span class="italic faint">by&nbsp;</span>
+      <span class="h6 spaced caps faint">{{ author }}</span>
+    {% endif %}
+    {% if summary %}<p class="lead">{{ summary }}</p>{% endif %}
+    
+    {{ content }}
+    
+    {% case page.fileSlug %}
+      {% when 'faq' %}
+        {% include 'components/accordion.html' %}
+      {% when 'events' %}
+        {% include 'components/grid.html' %}
+        {% when 'Contact' %}
+        {% include 'components/contact-form.html' %}
+    {% endcase %}
+  </div>
+  
+{% endblock %}

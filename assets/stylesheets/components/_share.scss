@@ -1,0 +1,14 @@
+.share {
+  display: inline-flex;
+
+  &__button {
+    box: horizontal center middle;
+    padding: $q;
+    margin-right: $h;
+    color: $gray-600;
+
+    svg {
+      size: $s;
+    }
+  }
+}

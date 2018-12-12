@@ -1,0 +1,33 @@
+{
+    "site": {
+        "name": "Milo & Finn",
+        "lang": "en",
+        "title": "Welcome to my website",
+        "url": "https://yero.netlify.com",
+        "description": "The description about this website",
+        "themeColor": "#fb1",
+        "skipEmpty": ["home", "faq", "events"],
+        "webmaster": "admin@email.com",
+        "locales": {
+            "en": "/",
+            "id": "/id"
+        }
+    },
+    "social": {
+        "facebook": "https://facebook.com/miloandfinn",
+        "twitter": "https://twitter.com/miloandfinn",
+        "instagram": "https://instagram.com/miloandfinn"
+    },
+    "analytics": {
+        "google": "GTM-W6GCGDL",
+        "twitter": "handle",
+        "facebook": "317251918889539"
+    },
+    "form": {
+        "name": "Comments"
+    },
+    "fallback": {
+        "image": "https://uploads-ssl.webflow.com/5bff8886c3964a992e90d465/5c00621b7aefa4f9ee0f4303_wide-shot.svg",
+        "thumbnail": "https://uploads-ssl.webflow.com/5bff8886c3964a992e90d465/5c00621b7aefa4f9ee0f4303_wide-shot.svg"
+    }
+}

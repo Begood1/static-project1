@@ -1,0 +1,56 @@
+{% if config.site.logoOrientation == 'right' %} 
+  {% assign class = 'container header header--reverse' %} 
+{% else %} 
+  {% assign class = 'container header' %} 
+{% endif %}
+
+{% if lang == 'id' %}
+  {% assign currentLang = 'amharic' %}
+  {% assign nextLang = 'English' %}
+  {% assign nextUrl = config.site.locales.en %}
+{% else %}
+  {% assign currentLang = 'English' %}
+  {% assign nextLang = 'AMHARIC' %} 
+  {% assign nextUrl = config.site.locales.id %}
+{% endif %}
+
+{% comment %} {% if nav == 'about us' %}
+  {% assign currentNav = 'selam' %}
+  {% assign nextNav = 'addis' %}
+   {% assign nextLang = 'addis' %}
+  {% assign nextUrl = config.site.locales.selam %}
+{% else %}
+  {% assign currentNav = 'selam' %}
+  {% assign nextNav = 'addis' %} 
+  {% assign nextUrl = config.site.locales.addis %}
+{% endif %} {% endcomment %}
+
+<header class="{{ class }}">
+  <a href="{{ config.site.url }}" class="logo">
+    {% Icon 'logo' %}
+  </a>
+
+  <div class="locale">
+    {% Icon 'globe' %}
+    <span class="h6 caps spaced faint">{{ currentLang }}</span>
+    {% Icon 'down' %}
+    <a href="{{ nextUrl }}" class="locale__dropdown h6 spaced caps faint center">{{ nextLang }}</a>
+  </div>
+  {% comment %} <div class="locale">
+    <span class="h6 caps spaced faint">{{ currentNav }}</span>
+    {% Icon 'down' %}
+    <a href="{{ nextUrl }}" class="locale__dropdown h6 spaced caps faint center">{{ nextNav }}</a>
+  </div> {% endcomment %}
+
+  <nav class="menu" role="navigation">
+    {% if lang == 'id' %}
+      {% for item in collections.navId %}
+        {% include 'components/menu-item.html' %}
+      {% endfor %}
+    {% else %}
+      {% for item in collections.nav %}
+        {% include 'components/menu-item.html' %} 
+      {% endfor %} 
+    {% endif %}
+  </nav>
+</header>

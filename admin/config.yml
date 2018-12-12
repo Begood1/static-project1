@@ -1,0 +1,148 @@
+backend:
+  name: git-gateway
+  branch: master
+
+display_url: https://yero.netlify.com
+logo_url: https://miloandfinn.netlify.com/assets/favicons/android-chrome-384x384.png
+public_folder: '/images'
+media_folder: 'source/images'
+media_library:
+  name: uploadcare
+  config:
+    publicKey: 007a43026cafa8857be4
+
+collections:
+  - name: 'pages'
+    label: 'Pages'
+    editor:
+      preview: false
+    files:
+      - label: 'About'
+        name: 'about'
+        file: 'pages/about.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Slug', name: 'slug', widget: 'hidden', default: 'about' }
+          - { label: 'Tags', name: 'tags', widget: 'hidden', default: 'nav' }
+          - { label: 'Summary', name: 'summary', widget: 'text' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+      - label: 'መነሻ ገጽ'
+        name: 'መነሻ ገጽ'
+        file: 'pages/id/መነሻ ገጽ.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Slug', name: 'slug', widget: 'hidden', default: 'tentang-kami' }
+          - { label: 'Tags', name: 'tags', widget: 'hidden', default: 'navId' }
+          - { label: 'Lang', name: 'lang', widget: 'hidden', default: 'id' }
+          - { label: 'Summary', name: 'summary', widget: 'text' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+      - label: 'ዜና'
+        name: 'ዜና'
+        file: 'pages/id/ዜና.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Slug', name: 'slug', widget: 'hidden', default: 'tentang-kami' }
+          - { label: 'Tags', name: 'tags', widget: 'hidden', default: 'navId' }
+          - { label: 'Lang', name: 'lang', widget: 'hidden', default: 'id' }
+          - { label: 'Summary', name: 'summary', widget: 'text' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }    
+      - label: 'FAQ'
+        name: 'faq'
+        file: 'pages/faq.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Slug', name: 'slug', widget: 'hidden', default: 'faq' }
+          - { label: 'Tags', name: 'tags', widget: 'hidden', default: 'nav' }
+          - label: 'Questions'
+            name: 'questions'
+            widget: 'list'
+            fields:
+              - { label: 'Question', name: 'question', widget: 'string' }
+              - { label: 'Answer', name: 'answer', widget: 'text' }
+      - label: 'Contact Us'
+        name: 'contact'
+        file: 'pages/Contact us.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Slug', name: 'slug', widget: 'hidden', default: 'about' }
+          - { label: 'Tags', name: 'tags', widget: 'hidden', default: 'nav' }
+          - { label: 'Summary', name: 'summary', widget: 'text' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }
+  - name: 'events'
+    label: 'Events'
+    editor:
+      preview: false
+    folder: 'events'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - {label: 'Title', name: 'title', widget: 'string'}
+      - {label: 'Date', name: 'date', widget: 'date'}
+      - {label: 'Location', name: 'location', widget: 'string'}
+      - {label: 'Image', name: 'image', widget: 'image', required: false}
+      - label: 'Tags'
+        name: 'tags'
+        widget: 'list'
+        hint: "Comma separated values and must include 'event'. For example: event, tech, food, sport"
+      - {label: 'Body', name: 'body', widget: 'markdown'}
+  - label: 'News'
+        name: 'news'
+        file: 'pages/news.md'
+        fields:
+          - { label: 'Title', name: 'title', widget: 'string' }
+          - { label: 'Slug', name: 'slug', widget: 'hidden', default: 'about' }
+          - { label: 'Tags', name: 'tags', widget: 'hidden', default: 'nav' }
+          - { label: 'Summary', name: 'summary', widget: 'text' }
+          - { label: 'Body', name: 'body', widget: 'markdown' }  
+  - name: 'settings'
+    label: 'Settings'
+    delete: false
+    editor:
+      preview: false
+    files:
+      - label: 'Site Settings'
+        name: 'settings'
+        file: 'config/config.json'
+        fields:
+          - label: 'General'
+            name: 'site'
+            widget: 'object'
+            fields:
+              - { label: 'Site Name', name: 'name', widget: 'string'}
+              - { label: 'Language', name: 'lang', widget: 'string'}
+              - { label: 'Default Title', name: 'title', widget: 'string'}
+              - { label: 'Home URL', name: 'url', widget: 'string', hint: 'Must starts with https://'}
+              - { label: 'Description', name: 'description', widget: 'string' }
+              - { label: 'Admin Email', name: 'webmaster', widget: 'string' }
+              - { label: 'Theme Color', name: 'themeColor', widget: 'string', hint: 'Hex value of a color. For example, #ffffff'}
+              - label: 'Locales'
+                name: 'locales'
+                widget: 'object'
+                fields: 
+                  - { label: 'English', name: 'en', widget: 'string', default: '/en' }
+                  - { label: 'French', name: 'fr', widget: 'string', default: '/fr' }
+          - label: 'Social'
+            name: 'social'
+            widget: 'object'
+            fields:
+              - { label: 'Facebook Page', name: 'facebook', widget: 'string', required: false }
+              - { label: 'Twitter', name: 'twitter', widget: 'string', required: false }
+              - { label: 'Instagram', name: 'instagram', widget: 'string', required: false }
+          - label: 'Analytics'
+            name: 'analytics'
+            widget: 'object'
+            fields:
+              - { label: 'Facebook App ID', name: 'facebook', widget: 'string', required: false }
+              - { label: 'Twitter Handle', name: 'twitter', widget: 'string', required: false }
+              - { label: 'Google Tracking ID', name: 'google', widget: 'string', required: false, hint: 'Starts with GTM- ...' }
+          - label: 'Form'
+            name: 'form'
+            widget: 'object'
+            fields:
+              - { label: 'Form Name', name: 'name', widget: 'string', hint: 'What the form is called in Netlify (Capitalize first letter)' }
+          - label: 'Fallback Images'
+            name: 'fallback'
+            widget: 'object'
+            fields:
+              - { label: 'Image', name: 'image', widget: 'image' }
+              - { label: 'Thumbnail', name: 'thumbnail', widget: 'image' }
