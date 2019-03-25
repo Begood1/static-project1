@@ -1,16 +1,22 @@
 {
     "site": {
-        "name": "Milo & Finn",
-        "lang": "en",
-        "title": "Welcome to my website",
+        "name": "geze",
         "url": "https://yero.netlify.com",
-        "description": "The description about this website",
-        "themeColor": "#fb1",
-        "skipEmpty": ["home", "faq", "events"],
+        "lang": "en",
+        "summary": "A sample website created using Eleventy & Netlify CMS",
+        "description": "This is a paragraph containing a more detailed description of the summary line above. Should not exceed more than 160 characters.",
         "webmaster": "admin@email.com",
-        "locales": {
-            "en": "/",
-            "id": "/id"
+        "themeColor": "#fb1",
+        "image": "https://ucarecdn.com/bda06761-6071-4dff-b49e-b9d705cfb3d6/"
+    },
+    "locales": {
+        "en": {
+            "url": "/",
+            "next": "id"
+        },
+        "id": {
+            "url": "/id",
+            "next": "en"
         }
     },
     "social": {
@@ -19,15 +25,11 @@
         "instagram": "https://instagram.com/miloandfinn"
     },
     "analytics": {
-        "google": "GTM-W6GCGDL",
-        "twitter": "handle",
+        "google": "GTM-5PV2GGM",
+        "twitter": "mytwitterhandle",
         "facebook": "317251918889539"
     },
     "form": {
         "name": "Comments"
-    },
-    "fallback": {
-        "image": "https://uploads-ssl.webflow.com/5bff8886c3964a992e90d465/5c00621b7aefa4f9ee0f4303_wide-shot.svg",
-        "thumbnail": "https://uploads-ssl.webflow.com/5bff8886c3964a992e90d465/5c00621b7aefa4f9ee0f4303_wide-shot.svg"
     }
 }

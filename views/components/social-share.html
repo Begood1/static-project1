@@ -1,4 +1,4 @@
-{% assign shareTitle = title | default: config.site.title | url_encode %}
+{% assign shareTitle = pageTitle | | url_encode %}
 {% capture url %}{{ config.site.url }}{{page.url}}{% endcapture %} 
 
 {% capture facebook %}
@@ -6,7 +6,7 @@
 {% endcapture %} 
 
 {% capture twitter %}
-	https://twitter.com/intent/tweet?text={{shareTitle}}&url={{url}}&via={{config.analytics.twitter}}
+	https://twitter.com/intent/tweet?text={{shareTitle}}&url={{url}}&via={{config.analytics.twitter}}&related={{config.analytics.twitter}}
 {% endcapture %} 
 
 {% capture email %}
@@ -17,19 +17,19 @@
 	https://wa.me/?text={{shareTitle}}%20{{url}}
 {% endcapture %} 
 
-<p class="share__heading h6 spaced caps faint">Share</p>
+<p class="share__heading h6 spaced caps faint">{{ 'share' | t: lang }}</p>
 
 <div class="share">
-	<a href="{{ facebook }}" class="share__button" target="_blank">
+	<a href="{{ facebook }}" class="share__button" rel="nofollow" target="_blank" title="Share on Facebook">
 		{% Icon 'facebook' %}
 	</a>
-	<a href="{{ twitter }}" class="share__button" target="_blank">
+	<a href="{{ twitter }}" class="share__button" rel="nofollow" target="_blank" title="Share on Twitter">
 		{% Icon 'twitter' %}
 	</a>
-	<a href="{{ email }}" class="share__button" target="_blank">
+	<a href="{{ email }}" class="share__button" rel="nofollow" target="_blank" title="Send to email">
 		{% Icon 'mail' %}
 	</a>
-	<a href="{{ whatsapp }}" class="share__button" target="_blank">
+	<a href="{{ whatsapp }}" class="share__button" rel="nofollow" target="_blank" title="Send on Whatsapp">
 		{% Icon 'whatsapp' %}
 	</a>
 </div>

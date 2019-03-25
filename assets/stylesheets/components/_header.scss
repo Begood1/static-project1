@@ -1,6 +1,10 @@
 .header {
-  box: horizontal middle;
+  display: none;
   padding: $s 0;
+
+  @include from(lg) {
+    box: horizontal middle;
+  }
 
   .logo {
     color: $gray-400;
@@ -8,12 +12,6 @@
 
     svg {
       size: $s*2;
-    }
-  }
-
-  .menu {
-    &__link {
-      padding: $h;
     }
   }
 

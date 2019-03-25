@@ -1,0 +1,10 @@
+.menu {
+    &__link {
+        padding: $h;
+    }
+
+    @at-root .mobile__panel #{&} {
+        box: vertical center;
+        margin-bottom: $s*2;
+    }
+}
