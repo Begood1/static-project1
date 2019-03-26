@@ -13,13 +13,25 @@ media_library:
 
 collections:
   - name: 'pages'
-    label: 'Pages'
+    label: 'pages'
     description: 'All pages from both English and Indonesian websites'
     editor:
       preview: false
-    files: 
-  
-           
+      fields:
+      - {label: 'Title', name: 'title', widget: 'string'}
+      - {label: 'Date', name: 'date', widget: 'date'}
+      - {label: 'Location', name: 'location', widget: 'string'}
+      - {label: 'Body', name: 'body', widget: 'markdown'}
+      - {label: 'Image', name: 'image', widget: 'image', required: false}
+      - label: 'Gallery'
+        name: 'gallery'
+        widget: 'image'
+        required: false
+        media_library:
+          config:
+            multiple: true
+            previewStep: false
+    files:
       - label: 'About Us'
         name: 'about'
         file: 'pages/about.md'
@@ -28,21 +40,21 @@ collections:
           - { label: 'Slug', name: 'slug', widget: 'hidden', default: 'about' }
           - { label: 'Tags', name: 'tags', widget: 'hidden', default: 'nav' }
           - { label: 'Summary', name: 'summary', widget: 'text' }
-          - { label: 'Body', name: 'body', widget: 'markdown' }
-         
-      
+          - {label: 'Image', name: 'image', widget: 'image', required: false}
+          - { label: 'Body', name: 'body', widget: 'markdown' }    
       - label: 'News'
         name: 'news'
         file: 'pages/news.md'
         fields:
-          - { label: 'Title', name: 'title', widget: 'string' }
-          - { label: 'Slug', name: 'slug', widget: 'hidden', default: 'about' }
-          - { label: 'Tags', name: 'tags', widget: 'hidden', default: 'nav' }
-          - { label: 'Summary', name: 'summary', widget: 'text' }
-          - { label: 'Body', name: 'body', widget: 'markdown' }    
-      - label: 'Home'
+           - { label: 'Title', name: 'title', widget: 'string' }
+           - { label: 'Slug', name: 'slug', widget: 'hidden', default: 'news' }
+           - { label: 'Tags', name: 'tags', widget: 'hidden', default: 'nav' }
+           - { label: 'Summary', name: 'summary', widget: 'text' }
+           - { label: 'Body', name: 'body', widget: 'markdown' }   
+
+      - label: 'Tentank kami'
         name: 'tentang'
-        file: 'pages/id/home.md'
+        file: 'pages/id/tentang.md'
         fields:
           - { label: 'Title', name: 'title', widget: 'string' }
           - { label: 'Slug', name: 'slug', widget: 'hidden', default: 'tentang-kami' }
@@ -57,7 +69,6 @@ collections:
           - { label: 'Title', name: 'title', widget: 'string' }
           - { label: 'Slug', name: 'slug', widget: 'hidden', default: 'faq' }
           - { label: 'Tags', name: 'tags', widget: 'hidden', default: 'nav' }
-        
           - label: 'Questions'
             name: 'questions'
             widget: 'list'
@@ -110,7 +121,28 @@ collections:
           config:
             multiple: true
             previewStep: false
-    
+  - name: 'post'
+    label: 'New post'
+    description: 'Add or modify English events here'
+    editor:
+      preview: false
+    folder: 'post'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - {label: 'Title', name: 'title', widget: 'string'}
+      - {label: 'Date', name: 'date', widget: 'date'}
+      - {label: 'Location', name: 'location', widget: 'string'}
+      - {label: 'Body', name: 'body', widget: 'markdown'}
+      - {label: 'Image', name: 'image', widget: 'image', required: false}
+      - label: 'Gallery'
+        name: 'gallery'
+        widget: 'image'
+        required: false
+        media_library:
+          config:
+            multiple: true
+            previewStep: false  
   - name: 'settings'
     label: 'Settings'
     description: 'Configure settings for the website here'
@@ -145,7 +177,7 @@ collections:
                   - { label: 'URL', name: 'url', widget: 'string' }
                   - { label: 'next', name: 'next', widget: 'string' }
               - label: 'Amharic'
-                name: 'AMHARIC'
+                name: 'id'
                 widget: 'object'
                 fields: 
                   - { label: 'URL', name: 'url', widget: 'string' }
@@ -169,6 +201,192 @@ collections:
             widget: 'object'
             fields:
               - { label: 'Form Name', name: 'name', widget: 'string', hint: 'What the form is called in Netlify (Capitalize first letter)' }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# backend:
+#   name: 'git-gateway'
+#   branch: 'master'
+
+# display_url: 'https://yero.netlify.com'
+# logo_url: 'https://yero.netlify.com/assets/favicons/android-chrome-384x384.png'
+# media_library:
+#   name: 'uploadcare'
+#   config:
+#     publicKey: '007a43026cafa8857be4'
+#     imagesOnly: true
+#     tabs: 'file gphotos url'
+
+# collections:
+#   - name: 'pages'
+#     label: 'Pages'
+#     description: 'All pages from both English and Indonesian websites'
+#     editor:
+#       preview: false
+#     files: 
+  
+           
+#       - label: 'About Us'
+#         name: 'about'
+#         file: 'pages/about.md'
+#         fields:
+#           - { label: 'Title', name: 'title', widget: 'string' }
+#           - { label: 'Slug', name: 'slug', widget: 'hidden', default: 'about' }
+#           - { label: 'Tags', name: 'tags', widget: 'hidden', default: 'nav' }
+#           - { label: 'Summary', name: 'summary', widget: 'text' }
+#           - { label: 'Body', name: 'body', widget: 'markdown' }
+         
+      
+#       - label: 'News'
+#         name: 'news'
+#         file: 'pages/news.md'
+#         fields:
+#           - { label: 'Title', name: 'title', widget: 'string' }
+#           - { label: 'Slug', name: 'slug', widget: 'hidden', default: 'about' }
+#           - { label: 'Tags', name: 'tags', widget: 'hidden', default: 'nav' }
+#           - { label: 'Summary', name: 'summary', widget: 'text' }
+#           - { label: 'Body', name: 'body', widget: 'markdown' }    
+#       - label: 'Home'
+#         name: 'tentang'
+#         file: 'pages/id/home.md'
+#         fields:
+#           - { label: 'Title', name: 'title', widget: 'string' }
+#           - { label: 'Slug', name: 'slug', widget: 'hidden', default: 'tentang-kami' }
+#           - { label: 'Tags', name: 'tags', widget: 'hidden', default: 'navId' }
+#           - { label: 'Lang', name: 'lang', widget: 'hidden', default: 'id' }
+#           - { label: 'Summary', name: 'summary', widget: 'text' }
+#           - { label: 'Body', name: 'body', widget: 'markdown' }
+#       - label: 'FAQ'
+#         name: 'faq'
+#         file: 'pages/faq.md'
+#         fields:
+#           - { label: 'Title', name: 'title', widget: 'string' }
+#           - { label: 'Slug', name: 'slug', widget: 'hidden', default: 'faq' }
+#           - { label: 'Tags', name: 'tags', widget: 'hidden', default: 'nav' }
+        
+#           - label: 'Questions'
+#             name: 'questions'
+#             widget: 'list'
+#             fields:
+#               - { label: 'Question', name: 'question', widget: 'string' }
+#               - { label: 'Answer', name: 'answer', widget: 'text' }
+
+#   - name: 'events'
+#     label: 'Events in English'
+#     description: 'Add or modify English events here'
+#     editor:
+#       preview: false
+#     folder: 'events'
+#     create: true
+#     slug: '{{slug}}'
+#     fields:
+#       - {label: 'Title', name: 'title', widget: 'string'}
+#       - {label: 'Date', name: 'date', widget: 'date'}
+#       - {label: 'Location', name: 'location', widget: 'string'}
+#       - {label: 'Body', name: 'body', widget: 'markdown'}
+#       - {label: 'Image', name: 'image', widget: 'image', required: false}
+#       - label: 'Gallery'
+#         name: 'gallery'
+#         widget: 'image'
+#         required: false
+#         media_library:
+#           config:
+#             multiple: true
+#             previewStep: false
+
+#   - name: 'events-id'
+#     label: 'Events in Indonesian'
+#     description: 'Add or modify Indonesian events here'
+#     editor:
+#       preview: false
+#     folder: 'events/id'
+#     create: true
+#     slug: '{{slug}}'
+#     fields:
+#       - {label: 'Title', name: 'title', widget: 'string'}
+#       - {label: 'Date', name: 'date', widget: 'date'}
+#       - {label: 'Location', name: 'location', widget: 'string'}
+#       - {label: 'Body', name: 'body', widget: 'markdown'}
+#       - {label: 'Image', name: 'image', widget: 'image', required: false}
+#       - label: 'Gallery'
+#         name: 'gallery'
+#         widget: 'image'
+#         required: false
+#         media_library:
+#           config:
+#             multiple: true
+#             previewStep: false
+    
+#   - name: 'settings'
+#     label: 'Settings'
+#     description: 'Configure settings for the website here'
+#     delete: false
+#     editor:
+#       preview: false
+#     files:
+#       - label: 'Site Settings'
+#         name: 'settings'
+#         file: 'config/config.json'
+#         fields:
+#           - label: 'General'
+#             name: 'site'
+#             widget: 'object'
+#             fields:
+#               - { label: 'Site Name', name: 'name', widget: 'string'}
+#               - { label: 'Home URL', name: 'url', widget: 'string', hint: 'Must starts with https://'}
+#               - { label: 'Default Language', name: 'lang', widget: 'string'}
+#               - { label: 'Summary', name: 'summary', widget: 'string'}
+#               - { label: 'Description', name: 'description', widget: 'text', hint: 'Must not exceed 160 characters' }
+#               - { label: 'Admin Email', name: 'webmaster', widget: 'string' }
+#               - { label: 'Theme Color', name: 'themeColor', widget: 'string', hint: 'Hex value of a color. For example, #ffffff'}
+#               - { label: 'Fallback Image', name: 'image', widget: 'image', hint: 'This image will be displayed when a post or page does not have a default cover image'}
+#           - label: 'Locales'
+#             name: 'locales'
+#             widget: 'object'
+#             fields: 
+#               - label: 'English'
+#                 name: 'en'
+#                 widget: 'object'
+#                 fields: 
+#                   - { label: 'URL', name: 'url', widget: 'string' }
+#                   - { label: 'next', name: 'next', widget: 'string' }
+#               - label: 'Amharic'
+#                 name: 'AMHARIC'
+#                 widget: 'object'
+#                 fields: 
+#                   - { label: 'URL', name: 'url', widget: 'string' }
+#                   - { label: 'next', name: 'next', widget: 'string' }
+#           - label: 'Social'
+#             name: 'social'
+#             widget: 'object'
+#             fields:
+#               - { label: 'Facebook Page', name: 'facebook', widget: 'string', required: false }
+#               - { label: 'Twitter', name: 'twitter', widget: 'string', required: false }
+#               - { label: 'Instagram', name: 'instagram', widget: 'string', required: false }
+#           - label: 'Analytics'
+#             name: 'analytics'
+#             widget: 'object'
+#             fields:
+#               - { label: 'Google Tracking ID', name: 'google', widget: 'string', required: false, hint: 'Starts with GTM- ...' }
+#               - { label: 'Twitter Handle', name: 'twitter', widget: 'string', required: false }
+#               - { label: 'Facebook App ID', name: 'facebook', widget: 'string', required: false }
+#           - label: 'Form'
+#             name: 'form'
+#             widget: 'object'
+#             fields:
+#               - { label: 'Form Name', name: 'name', widget: 'string', hint: 'What the form is called in Netlify (Capitalize first letter)' }
 
 
 
